@@ -2,6 +2,50 @@
 
 [Questions](./questions.md)
 
+## 数学基础
+
+### 快速幂
+
+point: 将求积的过程由递增改为倍增
+
+```cpp
+// 快速幂函数
+long long power(long long base, long long exp, long long mod) {
+    long long result = 1;
+    while (exp > 0) {
+        if (exp % 2 == 1) {  // exp & 1 = 1
+            result = (result * base) % mod;
+        }
+        base = (base * base) % mod;
+        exp /= 2;  // exp >>= 1
+    }
+    return result;
+}
+```
+
+### 组合数
+
+point: 杨辉三角 C(n, m) = C(n - 1, m - 1) + C(n - 1, m), 迭代
+
+```cpp
+// 计算组合数C(n, k)
+void combination(vector<vector<int>>& a, int mod, int n) {
+    for (int i = 0; i <= n; ++i) {
+        a[i][0] = 1;
+        a[i][i] = 1;
+    }
+    for (int i = 2; i <= n; ++i) {
+        for (int j = 1; j < i; ++j) {
+            a[i][j] = (a[i - 1][j] + a[i - 1][j - 1]) % mod;
+        }
+    }
+}
+```
+
+### 大数加法/阶乘
+
+point: 利用数组存储每一位数据, 注意需要临时变量存储进位值
+
 ## 基础算法
 
 ### 双向指针
