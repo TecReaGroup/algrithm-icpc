@@ -97,11 +97,14 @@ public:
 
 ### 二分查找
 
-根据二分法不断缩小范围直至符合条件
+point: 根据二分法不断缩小范围直至符合条件
+
+- 常见题目问法:
+  - 「最小化最大值」就是二分答案的代名词
 
 - 红蓝染色法
 
-  points:
+  point:
 
   - 以红蓝区间区分比 `target` 大 / 小的数, 不断更新维护区间
 
@@ -112,6 +115,10 @@ public:
 - [二分题单](https://leetcode.cn/circle/discuss/SqopEo/)
 
 - [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-cha-zhao-zong-shi-xie-bu-dui-yi-g-t9l9/)
+
+- [2439. 最小化数组中的最大值](https://leetcode.cn/problems/minimize-maximum-of-array/)
+
+- [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/)
 
 ## cpp 语法 / STL
 
