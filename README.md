@@ -97,10 +97,11 @@ public:
 
 ### 二分查找
 
-point: 根据二分法不断缩小范围直至符合条件
+point: 根据二分法不断缩小范围直至符合条件, 确定二分范围和染色规则
 
-- 常见题目问法:
-  - 「最小化最大值」就是二分答案的代名词
+数据特性: 子(原)序列具有单调性
+
+常见题目问法:"最小化最大值"就是二分答案的代名词
 
 - 红蓝染色法
 
@@ -119,6 +120,24 @@ point: 根据二分法不断缩小范围直至符合条件
 - [2439. 最小化数组中的最大值](https://leetcode.cn/problems/minimize-maximum-of-array/)
 
 - [875. 爱吃香蕉的珂珂](https://leetcode.cn/problems/koko-eating-bananas/)
+
+- [162. 寻找峰值](https://leetcode.cn/problems/find-peak-element/solution/by-endlesscheng-9ass/)
+
+- [1901. 寻找峰值 II](https://leetcode.cn/problems/find-a-peak-element-ii/)
+
+- [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/by-endlesscheng-owgd/)
+
+- [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/solution/by-endlesscheng-auuh/)
+
+- [154. 寻找旋转排序数组中的最小值 II](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/)
+
+### 链表
+
+- 反转链表
+
+- 快慢指针
+
+- 前后指针
 
 ## cpp 语法 / STL
 
@@ -195,7 +214,7 @@ public:
 
 - `priority_queue <int, vector<int>, greater<int> > q;`  // 升序
 
-优先级设置 - 自定义类型：  // 重载 `<` 运算符
+优先级设置 - 自定义类型:   // 重载 `<` 运算符
 
 ```cpp
 class fruit{
@@ -246,3 +265,29 @@ public:
 ## Tricks
 
 - 平均数防止溢出: (x + y)/2 -> x + (x - y)/2
+
+- 在C++中, 有许多预定义的常数用于表示不同类型的最小值和最大值
+
+```cpp
+/*
+<climits> 中定义的常数
+CHAR_MIN 和 CHAR_MAX: 字符类型的最小值和最大值
+SCHAR_MIN 和 SCHAR_MAX: 有符号字符类型的最小值和最大值
+UCHAR_MAX: 无符号字符类型的最大值
+SHRT_MIN 和 SHRT_MAX: 短整型的最小值和最大值
+USHRT_MAX: 无符号短整型的最大值
+INT_MIN 和 INT_MAX: 整型的最小值和最大值
+UINT_MAX: 无符号整型的最大值
+LONG_MIN 和 LONG_MAX: 长整型的最小值和最大值
+ULONG_MAX: 无符号长整型的最大值
+LLONG_MIN 和 LLONG_MAX: 长长整型（长长整数）的最小值和最大值
+ULLONG_MAX: 无符号长长整型的最大值
+<cfloat> 中定义的常数
+FLT_MIN 和 FLT_MAX: 单精度浮点数的最小正值和最大值
+DBL_MIN 和 DBL_MAX: 双精度浮点数的最小正值和最大值
+LDBL_MIN 和 LDBL_MAX: 长双精度浮点数的最小正值和最大值
+FLT_EPSILON: 单精度浮点数能够表示的最小的正数
+DBL_EPSILON: 双精度浮点数能够表示的最小的正数
+LDBL_EPSILON: 长双精度浮点数能够表示的最小的正数
+*/
+```
