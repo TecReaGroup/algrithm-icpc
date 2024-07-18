@@ -2,10 +2,12 @@
 using namespace std;
 
 int main(){
-    vector<int> nums = {1, 2, 3, 4, 5};
-    vector<int> ans(nums.begin(), nums.end());
-    for (int i = 0; i < ans.size(); i++){
-        cout << ans[i] << " ";
-    }
+    int arr[] = {1, 2, 3, 4, 5};
+    auto begin1 = begin(arr);
+    auto end1 = end(arr);
 
+    for (auto it = begin1; it != end1; ++it) {
+        cout << *it << " "; // 通过迭代器访问数组元素
+    }
+    
 }

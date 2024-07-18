@@ -139,6 +139,14 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 
 - 前后指针
 
+题目:
+
+[206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/solution/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-o5zy/)
+
+[92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/solution/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-teqq/)
+
+[25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/solution/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-plfs/)
+
 ## cpp 语法 / STL
 
 ### STL 数据结构
@@ -233,6 +241,30 @@ public:
 priority_queue<fruit> p;
 ```
 
+### STL 函数
+
+#### lower_bound 与 distance
+
+lower_bound: 二分查找
+
+distance: 将迭代器转换为目标的索引
+
+```cpp
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans(2, -1); // Initialize with -1 to indicate not found
+        vector<int>::iterator lower = lower_bound(nums.begin(), nums.end(), target);
+        vector<int>::iterator upper = lower_bound(nums.begin(), nums.end(), target + 1);
+        if (lower != nums.end() && *lower == target) {
+            ans[0] = distance(nums.begin(), lower);
+            ans[1] = distance(nums.begin(), upper) - 1;
+        }
+        return ans;
+    }
+};
+```
+
 ### Syntax
 
 #### Recursion
@@ -262,9 +294,37 @@ public:
 }
 ```
 
+#### sturct构造函数
+
+构造函数: 是一个特殊的成员函数, 用于在创建对象时初始化对象的成员变量. 构造函数的名称与类名相同, 并且没有返回类型. 构造函数可以有参数, 也可以没有参数(即默认构造函数)
+
+```cpp
+// 使用成员初始化列表
+struct ListNode {
+    int val;
+    ListNode* next;
+
+    // 默认构造函数，将节点值初始化为0，指针初始化为nullptr
+    ListNode() : val(0), next(nullptr) {}
+
+    // 构造函数，接受一个整数参数，将节点值初始化为该参数，指针初始化为nullptr
+    ListNode(int x) : val(x), next(nullptr) {}
+
+    // 构造函数，接受一个整数参数和一个指向下一个节点的指针，将节点值和指针分别初始化为这两个参数
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+}
+
+// 在构造函数体内赋值
+struct ListNode() {
+    int val = 0;
+    ListNode* next = nullptr;
+}
+```
+
 ## Tricks
 
-- 平均数防止溢出: (x + y)/2 -> x + (x - y)/2
+- 防止溢出(先减后加, 先除后乘):
+  - 平均数: (x + y)/2 -> x + (x - y)/2
 
 - 在C++中, 有许多预定义的常数用于表示不同类型的最小值和最大值
 
