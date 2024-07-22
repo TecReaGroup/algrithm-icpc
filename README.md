@@ -137,7 +137,17 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 
 - 快慢指针
 
+  - 寻找第 1/n 的节点: fast 移动速度是 slow 的 n 倍
+
+  - 寻找倒数第 n 个节点, 让 fast 先走 short 与其保持 n 个单位距离
+
 - 前后指针
+
+- 删除指针
+
+  - p->next = p->next->next
+
+  - cur->val = cur->next->val; cur->next = cur->next->next;  // copy: 伪装成下一个节点
 
 题目:
 
@@ -162,6 +172,26 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/solution/ru-he-qu-zhong-yi-ge-shi-pin-jiang-tou-p-98g7/)
 
 [82. 删除排序链表中的重复元素 II](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/solution/ru-he-qu-zhong-yi-ge-shi-pin-jiang-tou-p-2ddn/)
+
+### 二叉树
+
+- 递归: 搜索 数归: 数学正确性 栈: 调用数据结构
+
+- 相同 平衡 右视图
+
+题目:
+
+[104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/solution/kan-wan-zhe-ge-shi-pin-rang-ni-dui-di-gu-44uz/)
+
+[112. 路径总和](https://leetcode.cn/problems/path-sum/)
+
+[100. 相同的树](https://leetcode.cn/problems/same-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-empk/)
+
+[101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-6dq5/)
+
+[110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-c3wj/)
+
+[199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/)
 
 ## cpp 语法 / STL
 
