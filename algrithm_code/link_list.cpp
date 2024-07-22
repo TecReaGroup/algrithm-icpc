@@ -109,6 +109,129 @@ class Solution {
         return head;
     }
 
+    // 876. 链表的中间结点 https://leetcode.cn/problems/middle-of-the-linked-list/solution/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-wzwm/
+    ListNode* middleNode(ListNode* head) {
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+
+    // 141. 环形链表 https://leetcode.cn/problems/linked-list-cycle/solution/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-c4sw/
+    bool hasCycle(ListNode *head) {
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) return true;
+        }
+        return false;
+    }
+
+    // 142. 环形链表 II https://leetcode.cn/problems/linked-list-cycle-ii/solution/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-nvsq/
+    ListNode *detectCycle(ListNode *head) {
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) {
+                ListNode *index1 = head;
+                ListNode *index2 = slow;
+                while (index1 != index2) {
+                    index1 = index1->next;
+                    index2 = index2->next;
+                }
+                return index1;
+            }
+        }
+        return nullptr;
+    }
+
+    // 143. 重排链表 https://leetcode.cn/problems/reorder-list/solution/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-u66q/
+    void reorderList(ListNode* head) {
+        ListNode *middle = middleNode(head);
+        ListNode *pre = nullptr;
+        ListNode *cur = middle;
+        while (cur != nullptr) {
+            ListNode *nxt = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = nxt;
+        }
+
+        ListNode *p1 = head;
+        ListNode *p2 = pre;
+        while (p2->next != nullptr) {
+            ListNode *tmp1 = p1->next;
+            ListNode *tmp2 = p2->next;
+            p1->next = p2;
+            p2->next = tmp1;
+            p1 = tmp1;
+            p2 = tmp2;
+        }
+    }
+
+    // 237. 删除链表中的节点 https://leetcode.cn/problems/delete-node-in-a-linked-list/solution/ru-he-shan-chu-jie-dian-liu-fen-zhong-ga-x3kn/
+    void deleteNode(ListNode* node) {
+        node->val = node->next->val;
+        node->next = node->next->next;
+    }
+    
+    // 19. 删除链表的倒数第 N 个结点 https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solution/ru-he-shan-chu-jie-dian-liu-fen-zhong-ga-xpfs/
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *slow = dummy;
+        ListNode *fast = dummy;
+        for (int i = 0; i < n; i++) {
+            fast = fast->next;
+        }
+        while (fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+        slow->next = slow->next->next;
+        return dummy->next;
+    }
+
+    
+    // 83. 删除排序链表中的重复元素 https://leetcode.cn/problems/remove-duplicates-from-sorted-list/solution/ru-he-qu-zhong-yi-ge-shi-pin-jiang-tou-p-98g7/
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == nullptr) return head;
+        ListNode *cur = head;
+        while (cur->next != nullptr) {
+            if (cur->val == cur->next->val) {
+                cur->next = cur->next->next;
+            }
+            else {
+                cur = cur->next;
+            }
+        }
+        return head;
+    }
+    
+    // 82. 删除排序链表中的重复元素 II https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/solution/ru-he-qu-zhong-yi-ge-shi-pin-jiang-tou-p-2ddn/
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == nullptr) return head;
+
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *cur = dummy;
+        while (cur->next != nullptr && cur->next->next != nullptr) {
+            int val = cur->next->val;
+            if (cur->next->next->val == val) {
+                while (cur->next != nullptr && cur->next->val == val) {
+                    cur->next = cur->next->next;
+                }
+            }
+            else cur = cur->next;
+        }
+
+        return dummy->next;
+    }
 };
 
 
