@@ -175,7 +175,7 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 
 ### 二叉树
 
-- 递归: 搜索 数归: 数学正确性 栈: 调用数据结构
+- 递归: 深度优先搜索 数归: 数学正确性 栈: 调用数据结构
 
 - 相同 平衡 右视图
 
@@ -192,6 +192,8 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 [110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-c3wj/)
 
 [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/solution/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/)
+
+[98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/solution/qian-xu-zhong-xu-hou-xu-san-chong-fang-f-yxvh/)
 
 ## cpp 语法 / STL
 

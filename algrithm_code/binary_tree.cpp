@@ -6,8 +6,9 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x): val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right): val(x), left(left), right(right) {}
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
 
@@ -77,11 +78,55 @@ class Solution {
         dfs(root, 0);
         return res;
     }
+
+    // 98. 验证二叉搜索树
+    bool isValidBST(TreeNode* root) {
+        function<bool(TreeNode*, long long, long long)> presearch = [&] (TreeNode* root, long long lower, long long upper){
+            if (root == nullptr) return true;
+            if (root->val <= lower || root->val >= upper) return false;
+            return presearch(root->left, lower, root->val) && presearch(root->right, root->val, upper);
+        };
+
+        long long pre = LLONG_MIN;
+        function<bool(TreeNode*, long long, long long)> midsearch = [&] (TreeNode* root, long long lower, long long upper){
+            if (root == nullptr) return true;
+            if (!midsearch(root->left, lower, root->val)) return false;
+            if (root->val <= pre) return false;
+            pre = root->val;
+            return midsearch(root->right, root->val, upper);
+        };
+
+        function<vector<long long>(TreeNode*)> postsearch = [&] (TreeNode* root) -> vector<long long>{
+            vector<long long> ans = {LLONG_MAX, LLONG_MIN};
+            if (root == nullptr) return ans;
+            long long l_min = postsearch(root->left)[0], l_max = postsearch(root->left)[1];
+            long long r_min = postsearch(root->right)[0], r_max = postsearch(root->right)[1];
+            long long x = root->val;
+            if (x <= l_max || x >= r_min) {
+                ans[0] = LLONG_MIN;
+                ans[1] = LLONG_MAX;
+                return ans;
+            }
+            ans[0] = min(x, l_min);
+            ans[1] = max(x, r_max);
+            return ans;
+        };
+
+        return postsearch(root)[0] != LLONG_MAX;
+    }
 };
 
 
 int main() {
+    vector<int> a = {0};
+    TreeNode* root = new TreeNode(a[0]);
+    for (int i = 0; 2*i+2 < a.size(); ++i) {
+        root->left = new TreeNode(a[2*i+1]);
+        root->right = new TreeNode(a[2*i+2]);
+    }
 
+    Solution s;
+    cout << s.isValidBST(root) << endl;
 
     return 0;
 }
