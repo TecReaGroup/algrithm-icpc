@@ -114,6 +114,92 @@ class Solution {
 
         return postsearch(root)[0] != LLONG_MAX;
     }
+
+    // 236. 二叉树的最近公共祖先
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == nullptr || root == p || root == q) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left == nullptr) return right;
+        return left;
+    }
+
+    // 235. 二叉搜索树的最近公共祖先
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (p->val > q->val) swap(p, q);
+        TreeNode *left, *right;
+        if (root == nullptr || root == p || root == q  || (root->val > p->val && root->val < q->val)) return root;
+        if (q->val < root->val ) return left = lowestCommonAncestor(root->left, p, q);
+        return right = lowestCommonAncestor(root->right, p, q);
+    }
+
+    // 102. 二叉树的层序遍历 https://leetcode.cn/problems/binary-tree-level-order-traversal/solution/bfs-wei-shi-yao-yao-yong-dui-lie-yi-ge-s-xlpz/
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if (root == nullptr) return {};
+        vector<vector<int>> res;
+        queue<TreeNode *> q;
+        q.push(root);
+        while (!q.empty()) {
+            vector<int> level;
+            for (int i = q.size(); i--;) {  // q.size is changing, so we need to store the size of q, not compare it in the loop
+                TreeNode* node = q.front();
+                q.pop();
+                level.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+            res.emplace_back(level);
+        }
+
+        return res;
+    }
+
+    // 103. 二叉树的锯齿形层序遍历 https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/solution/bfs-wei-shi-yao-yao-yong-dui-lie-yi-ge-s-xlv3/
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if (root == nullptr) return {};
+        vector<vector<int>> res;
+        queue<TreeNode *> q;
+        q.push(root);
+        bool flag = true;
+        while (!q.empty()) {
+            vector<int> level;
+            for (int i = q.size(); i--;) {  // q.size is changing, so we need to store the size of q, not compare it in the loop
+                TreeNode* node = q.front();
+                q.pop();
+                level.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+            if (flag) res.push_back(level);
+            else {
+                reverse(level.begin(), level.end());
+                res.push_back(level);
+            }
+            flag = !flag;
+        }
+
+        return res;
+    }
+
+
+    // 513. 找树左下角的值 https://leetcode.cn/problems/find-bottom-left-tree-value/solution/bfs-wei-shi-yao-yao-yong-dui-lie-yi-ge-s-f34y/
+    int findBottomLeftValue(TreeNode* root) {
+        if (root == nullptr) return {};
+        TreeNode* node = nullptr;
+        queue<TreeNode *> q;
+        q.push(root);
+        while (!q.empty()) {
+            for (int i = q.size(); i--;) {  // q.size is changing, so we need to store the size of q, not compare it in the loop
+                node = q.front();
+                q.pop();
+                if (node->right) q.push(node->right);
+                if (node->left) q.push(node->left);
+            }
+        }
+
+        return node->val;
+    }
+
 };
 
 
