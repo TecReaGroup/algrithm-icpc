@@ -131,6 +131,16 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 
 - [154. 寻找旋转排序数组中的最小值 II](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/)
 
+### 单调栈
+
+point: 删除无用元素, 维护栈的单调性和有效性
+
+[739. 每日温度](https://leetcode.cn/problems/daily-temperatures/solution/shi-pin-jiang-qing-chu-wei-shi-yao-yao-y-k0ks/)
+
+[42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/solution/zuo-liao-nbian-huan-bu-hui-yi-ge-shi-pin-ukwm/)
+
+[239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/shi-pin-yi-ge-shi-pin-miao-dong-dan-diao-ezj6/)
+
 ### 链表
 
 - 反转链表
@@ -211,6 +221,28 @@ point: 根据二分法不断缩小范围直至符合条件, 确定二分范围�
 
 [513. 找树左下角的值](https://leetcode.cn/problems/find-bottom-left-tree-value/solution/bfs-wei-shi-yao-yao-yong-dui-lie-yi-ge-s-f34y/)
 
+### 回溯
+
+- 回溯三问: 当前操作, 子问题, 下一个子问题
+
+- 回溯类型
+
+  - 子集型回溯: choose or not
+
+  - 组合型回溯
+
+  - 排列型回溯
+
+- 两种思路: 输入视角, 答案视角
+
+题目:
+
+[17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/solutions/2059416/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-3orv/)
+
+[78. 子集](https://leetcode.cn/problems/subsets/solutions/2059409/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-8tkl/)
+
+[131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/solutions/2059414/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-fues/)
+
 ## cpp 语法 / STL
 
 ### STL 数据结构
@@ -259,6 +291,12 @@ public:
 `queue<varible_type> varible_name;`  // FIFO: first in, first out
 
 基础操作: push, pop, back, front, empty, size
+
+#### deque 双向队列
+
+`dequeue<varible_type> vatible_name`
+
+基本操作: front, back, pussh_back, push_front, pop_back, pop_front, empty, size
 
 #### set / multiset
 
