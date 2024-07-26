@@ -223,13 +223,19 @@ point: 删除无用元素, 维护栈的单调性和有效性
 
 ### 回溯
 
+point: 增量构造答案
+
 - 回溯三问: 当前操作, 子问题, 下一个子问题
 
 - 回溯类型
 
   - 子集型回溯: choose or not
 
-  - 组合型回溯
+  - 组合型回溯:
+
+    - 减枝: 根据题目约束条件, 增加递归限制条件, 跳过不可能的分枝
+
+    - 时间复杂度分析: Sum(叶子节点*高度)
 
   - 排列型回溯
 
@@ -242,6 +248,12 @@ point: 删除无用元素, 维护栈的单调性和有效性
 [78. 子集](https://leetcode.cn/problems/subsets/solutions/2059409/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-8tkl/)
 
 [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/solutions/2059414/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-fues/)
+
+[77. 组合](https://leetcode.cn/problems/combinations/solutions/2071017/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-65lh/)
+
+[216. 组合总和 III](https://leetcode.cn/problems/combination-sum-iii/solutions/2071013/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-feme/)
+
+[22. 括号生成](https://leetcode.cn/problems/generate-parentheses/solutions/2071015/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-wcdw/)
 
 ## cpp 语法 / STL
 
