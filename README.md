@@ -263,7 +263,19 @@ point: 增量构造答案
 
 ### 动态规划
 
-- 动态规划入门：从记忆化搜索到递推
+动态规划入门：从记忆化搜索到递推
+
+- 线性 DP: 最长公共子序列 编辑距离
+
+- 状态机 DP: 买卖股票的最佳时机
+
+- 区间 DP：最长回文子序列
+
+- 树形 DP：树的直径
+
+Interesting:
+
+- 路径记录: `1092. 最短公共超序列`: 利用dp的结果, 从而有方向性的回溯构造答案(构造答案而不是数的方法: 在知道数的方法上构造答案)
 
 题目:
 
@@ -284,6 +296,22 @@ point: 增量构造答案
 [1458. 两个子序列的最大点积](https://leetcode.cn/problems/max-dot-product-of-two-subsequences/)
 
 [1092. 最短公共超序列](https://leetcode.cn/problems/shortest-common-supersequence/)
+
+[122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/solution/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-o3y4/)
+
+[309. 最佳买卖股票时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-0k0l/)
+
+[188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solution/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-kksg/)
+
+[516. 最长回文子序列](https://leetcode.cn/problems/longest-palindromic-subsequence/solution/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-kgkg/)
+
+[1039. 多边形三角剖分的最低得分](https://leetcode.cn/problems/minimum-score-triangulation-of-polygon/solution/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-aty6/)
+
+[543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/solution/shi-pin-che-di-zhang-wo-zhi-jing-dpcong-taqma/)
+
+[124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/solution/shi-pin-che-di-zhang-wo-zhi-jing-dpcong-n9s91/)
+
+[2246. 相邻字符不同的最长路径](https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/solution/by-endlesscheng-92fw/)
 
 ## cpp 语法 / STL
 
