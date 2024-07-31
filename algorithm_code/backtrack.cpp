@@ -164,6 +164,117 @@ public:
         return ans;
     }
 
+    // 46. 全排列 https://leetcode.cn/problems/permutations/solution/hui-su-bu-hui-xie-tao-lu-zai-ci-jing-que-6hrh/
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        vector<bool> used(nums.size(), false);
+        
+        function<void()> backtrack = [&] () -> void {
+            if (path.size() == nums.size()) {
+                ans.push_back(path);
+                return;
+            }
+
+            for (int i = 0; i < nums.size(); i++) {
+                if (used[i]) continue;
+                used[i] = true;
+                path.push_back(nums[i]);
+                backtrack();
+                path.pop_back();
+                used[i] = false;
+            }
+        };
+        backtrack();
+
+        return ans;
+    }
+    
+    // 51. N 皇后 https://leetcode.cn/problems/n-queens/solution/hui-su-tao-lu-miao-sha-nhuang-hou-shi-pi-mljv/
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> ans;
+        vector<string> path;
+        vector<bool> col(n, false), dg(2*n, false), udg(2*n, false);
+
+        function<void(int)> backtrack = [&] (int i) -> void {
+            if (i == n) {
+                ans.push_back(path);
+                return;
+            }
+
+            for (int j = 0; j < n; j++){
+                if (!col[j] && !dg[i+j] && !udg[i-j+n]){
+                    string s(n, '.');
+                    s[j] = 'Q';
+                    path.push_back(s);
+                    col[j] = dg[i+j] = udg[i-j+n] = true;
+                    backtrack(i + 1);
+                    path.pop_back();
+                    col[j] = dg[i+j] = udg[i-j+n] = false;
+                }
+            } 
+        };
+        backtrack(0);
+
+        return ans;
+    }
+    
+    
+    // 52. N 皇后 II https://leetcode.cn/problems/n-queens-ii/solution/hui-su-miao-sha-nhuang-hou-yi-ge-shi-pin-l41l
+    // 46. 全排列 https://leetcode.cn/problems/permutations/solution/hui-su-bu-hui-xie-tao-lu-zai-ci-jing-que-6hrh/
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> path;
+        vector<bool> used(nums.size(), false);
+        
+        function<void()> backtrack = [&] () -> void {
+            if (path.size() == nums.size()) {
+                ans.push_back(path);
+                return;
+            }
+
+            for (int i = 0; i < nums.size(); i++) {
+                if (used[i]) continue;
+                used[i] = true;
+                path.push_back(nums[i]);
+                backtrack();
+                path.pop_back();
+                used[i] = false;
+            }
+        };
+        backtrack();
+
+        return ans;
+    }
+    
+    // 51. N 皇后 https://leetcode.cn/problems/n-queens/solution/hui-su-tao-lu-miao-sha-nhuang-hou-shi-pi-mljv/
+    int totalNQueens(int n) {
+        vector<vector<string>> ans;
+        vector<string> path;
+        vector<bool> col(n, false), dg(2*n, false), udg(2*n, false);
+
+        function<void(int)> backtrack = [&] (int i) -> void {
+            if (i == n) {
+                ans.push_back(path);
+                return;
+            }
+
+            for (int j = 0; j < n; j++){
+                if (!col[j] && !dg[i+j] && !udg[i-j+n]){
+                    string s(n, '.');
+                    s[j] = 'Q';
+                    path.push_back(s);
+                    col[j] = dg[i+j] = udg[i-j+n] = true;
+                    backtrack(i + 1);
+                    path.pop_back();
+                    col[j] = dg[i+j] = udg[i-j+n] = false;
+                }
+            } 
+        };
+        backtrack(0);
+
+        return ans.size();
+    }
 
 };
 

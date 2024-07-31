@@ -255,6 +255,36 @@ point: 增量构造答案
 
 [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/solutions/2071015/hui-su-bu-hui-xie-tao-lu-zai-ci-pythonja-wcdw/)
 
+[46. 全排列](https://leetcode.cn/problems/permutations/solution/hui-su-bu-hui-xie-tao-lu-zai-ci-jing-que-6hrh/)
+
+[51. N 皇后](https://leetcode.cn/problems/n-queens/solution/hui-su-tao-lu-miao-sha-nhuang-hou-shi-pi-mljv/)
+
+[52. N 皇后 II](https://leetcode.cn/problems/n-queens-ii/solution/hui-su-miao-sha-nhuang-hou-yi-ge-shi-pin-l41l)
+
+### 动态规划
+
+- 动态规划入门：从记忆化搜索到递推
+
+题目:
+
+[198. 打家劫舍](https://leetcode.cn/problems/house-robber/solutions/2102725/ru-he-xiang-chu-zhuang-tai-ding-yi-he-zh-1wt1/)
+
+[1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/solutions/2133188/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-lbz5/)
+
+[72. 编辑距离](https://leetcode.cn/problems/edit-distance/solutions/2133222/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-uo5q/)
+
+[300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/solution/jiao-ni-yi-bu-bu-si-kao-dpfu-o1-kong-jia-4zma/)
+
+[583. 两个字符串的删除操作](https://leetcode.cn/problems/delete-operation-for-two-strings/)
+
+[712. 两个字符串的最小ASCII删除和](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings/)
+
+[97. 交错字符串](https://leetcode.cn/problems/interleaving-string/)
+
+[1458. 两个子序列的最大点积](https://leetcode.cn/problems/max-dot-product-of-two-subsequences/)
+
+[1092. 最短公共超序列](https://leetcode.cn/problems/shortest-common-supersequence/)
+
 ## cpp 语法 / STL
 
 ### STL 数据结构
