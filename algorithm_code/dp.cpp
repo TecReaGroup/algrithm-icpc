@@ -337,6 +337,49 @@ class Solution {
         dp(0);
         return ans + 1;
     }
+
+    // 337. 打家劫舍 III
+    int rob(TreeNode* root) {
+        map<TreeNode*, int> memo;
+        function<int(TreeNode*, int)> dp = [&] (TreeNode *root, int status) -> int {
+            if (root == nullptr) return 0;
+            int ans = 0;
+            if (status == 1) {
+                if (memo.find(root) != memo.end()) ans = memo[root];
+                else {
+                    ans = dp(root->left, 0) + dp(root->right, 0) + root->val;
+                    memo[root] = ans;
+                }
+            }
+            ans = max(ans, dp(root->left, 1) + dp(root->right, 1));
+
+            return ans;
+        };
+
+        return dp(root, 1);
+    }
+
+    // 968. 监控二叉树
+    int minCameraCover(TreeNode* root) {
+        map<TreeNode*, int> memo;
+        function<int(TreeNode*, int)> dp = [&] (TreeNode *root, int status) -> int {
+            if (root == nullptr) return 0;
+            int ans = INT_MAX/2;
+            if (status == 1) {  // 父节点已经监控
+                return min(dp(root->left, 0) + dp(root->right, 0), dp(root->left, 1) + dp(root->right, 1) + 1);
+            }
+            if (status == 2) return dp(root->left, 1) + dp(root->right, 1) + 1;  // 当前节点必须监控
+            if (memo.find(root) != memo.end()) return memo[root];  // 记忆化搜索
+            else {
+                ans = dp(root->left, 1) + dp(root->right, 1) + 1;  // 当前节点监控
+                if (root->left != nullptr) ans = min(ans, dp(root->left, 2) + dp(root->right, 0));  // 左节点监控
+                if (root->right != nullptr) ans = min(ans, dp(root->left, 0) + dp(root->right, 2));  // 右节点监控
+                if (root->left != nullptr && root->right != nullptr) ans = min(ans, dp(root->left, 2) + dp(root->right, 2));  // 左右节点监控
+                return memo[root] = ans;
+            }
+        };
+        return dp(root, 0);
+    }
 };
 
 

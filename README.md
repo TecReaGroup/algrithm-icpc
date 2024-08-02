@@ -313,6 +313,10 @@ Interesting:
 
 [2246. 相邻字符不同的最长路径](https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/solution/by-endlesscheng-92fw/)
 
+[337. 打家劫舍 III](https://leetcode.cn/problems/house-robber-iii/solution/shi-pin-ru-he-si-kao-shu-xing-dppythonja-a7t1/)
+
+[968. 监控二叉树](https://leetcode.cn/problems/binary-tree-cameras/solution/shi-pin-ru-he-si-kao-shu-xing-dpgai-chen-uqsf/)
+
 ## cpp 语法 / STL
 
 ### STL 数据结构
